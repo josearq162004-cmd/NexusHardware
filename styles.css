@@ -1,0 +1,260 @@
+/* Estilos personalizados Nexus Hardware Caracas */
+:root {
+  --primary: #06b6d4;
+  --primary-dark: #0891b2;
+  --accent: #6366f1;
+  --bg-dark: #030712;
+}
+
+/*
+ * Toast container — z-index extremadamente alto para que SIEMPRE aparezca
+ * por encima de cualquier modal, backdrop o overlay del sistema.
+ * Se usa !important como respaldo por si Tailwind no aplica z-[99999].
+ */
+#toast-container {
+  z-index: 99999 !important;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 50% 10%, #1e1b4b 0%, #030712 60%);
+  color: #f8fafc;
+}
+
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
+/* Marco de dispositivo móvil */
+.device-frame {
+  box-shadow: 0 25px 60px -15px rgba(6, 182, 212, 0.25), 0 0 40px -10px rgba(99, 102, 241, 0.2);
+  transition: all 0.35s ease;
+}
+
+.device-frame.fullscreen-mode {
+  max-width: 100% !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Efectos de tarjetas de hardware */
+.hw-card {
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.hw-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(6, 182, 212, 0.6);
+  box-shadow: 0 8px 24px -6px rgba(6, 182, 212, 0.15);
+}
+
+/* Pestañas activas */
+.nav-tab.active {
+  color: #06b6d4 !important;
+}
+.nav-tab.active i {
+  filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.7));
+  transform: scale(1.1);
+}
+
+/* Badges con brillo */
+.badge-neon {
+  background: rgba(6, 182, 212, 0.15);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+}
+
+/* Indicador de stock */
+.stock-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.stock-dot.in-stock {
+  background-color: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+.stock-dot.low-stock {
+  background-color: #f59e0b;
+  box-shadow: 0 0 6px #f59e0b;
+}
+.stock-dot.out-of-stock {
+  background-color: #ef4444;
+  box-shadow: 0 0 6px #ef4444;
+}
+
+/* Estilos para el Visor de Tablas de Base de Datos */
+.db-table-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: #06b6d4 #090d16;
+}
+.db-table-wrapper::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.db-table-wrapper::-webkit-scrollbar-thumb {
+  background: #0891b2;
+  border-radius: 4px;
+}
+.db-table-wrapper::-webkit-scrollbar-track {
+  background: #090d16;
+}
+.db-table-custom {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+.db-table-custom th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #0f172a;
+}
+.db-table-custom tr {
+  transition: background-color 0.15s ease;
+}
+.db-table-custom tr:hover td {
+  background-color: rgba(6, 182, 212, 0.07);
+}
+.db-table-custom td {
+  border-bottom: 1px solid rgba(51, 65, 85, 0.4);
+}
+
+/* ========================================================== */
+/* LOGOTIPO ATRACTIVO NEXUS HARDWARE                         */
+/* Para qué se hizo: Dar una identidad visual de alta gama   */
+/* inspirada en Cyberpunk / High-Tech Hardware Enthusiasts.  */
+/* Cómo se hizo: Animación de resplandor pulsante, sombra    */
+/* de neón cian/púrpura y transiciones al pasar el cursor.   */
+/* ========================================================== */
+.store-logo-svg {
+  filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.45)) drop-shadow(0 0 16px rgba(99, 102, 241, 0.3));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+.store-logo-wrapper:hover .store-logo-svg {
+  transform: scale(1.08) rotate(3deg);
+  filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.8)) drop-shadow(0 0 22px rgba(168, 85, 247, 0.5));
+}
+
+/* Efecto de texto con gradiente de neón */
+.brand-text-gradient {
+  background: linear-gradient(135deg, #22d3ee 0%, #38bdf8 45%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========================================================== */
+/* ESTILOS PARA IMPRESIÓN Y EXPORTACIÓN DE FACTURAS A PDF     */
+/* ========================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  aside,
+  #device-wrapper,
+  .bottom-nav,
+  .app-header,
+  .mobile-status-bar,
+  #toast-container,
+  .modal-backdrop:not(#modal-invoice),
+  #modal-invoice .px-5.py-3\.5,
+  #modal-invoice .px-4.py-2,
+  #modal-invoice #invoice-email-drawer,
+  #modal-invoice-close,
+  .no-print {
+    display: none !important;
+  }
+
+  #modal-invoice {
+    position: static !important;
+    display: block !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    z-index: 9999 !important;
+  }
+
+  #modal-invoice > div {
+    max-width: 100% !important;
+    max-height: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+
+  #invoice-preview-container {
+    padding: 20px !important;
+    overflow: visible !important;
+  }
+
+  .invoice-paper-view {
+    border: 1px solid #94a3b8 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+
+  .invoice-paper-view * {
+    color: #0f172a !important;
+    text-shadow: none !important;
+    border-color: #cbd5e1 !important;
+  }
+
+  .invoice-paper-view .bg-slate-950,
+  .invoice-paper-view .bg-slate-900,
+  .invoice-paper-view .bg-cyan-950,
+  .invoice-paper-view .bg-emerald-950 {
+    background-color: #f8fafc !important;
+  }
+}
+
